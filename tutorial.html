@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfy World - Tutorial</title>
+    <link rel="stylesheet" href="tutorial.css">
+</head>
+<body>
+    <div id="tutorial-container">
+        <div class="tutorial-step" id="step-1">
+            <div class="tutorial-content">
+                <h2>¡Bienvenido al Tutorial!</h2>
+                <p class="tutorial-text">Aprenderás a usar tus Lobitos en batalla contra el Tronco Místico.</p>
+                <div class="tutorial-image">🌳</div>
+                <button class="tutorial-btn" onclick="nextStep(2)">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="step-2">
+            <div class="tutorial-content">
+                <h2>Tus 4 Lobitos</h2>
+                <p class="tutorial-text">Cada Lobito controla un color de orbe en el tablero:</p>
+                <div class="cards-demo">
+                    <div class="demo-card"><div class="demo-icon">🐺</div><div class="demo-name">Lobito</div><div class="demo-orb blanco"></div><p class="demo-desc">Orbes Blancos (Neutral)</p></div>
+                    <div class="demo-card"><div class="demo-icon">⚔️</div><div class="demo-name">Espadachín</div><div class="demo-orb rojo"></div><p class="demo-desc">Orbes Rojos (Dominancia)</p></div>
+                    <div class="demo-card"><div class="demo-icon">🏹</div><div class="demo-name">Arquero</div><div class="demo-orb verde"></div><p class="demo-desc">Orbes Verdes (Precisión)</p></div>
+                    <div class="demo-card"><div class="demo-icon">📚</div><div class="demo-name">Escolar</div><div class="demo-orb azul"></div><p class="demo-desc">Orbes Azules (Inteligencia)</p></div>
+                </div>
+                <button class="tutorial-btn" onclick="nextStep(3)">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="step-3">
+            <div class="tutorial-content">
+                <h2>Cómo Atacar</h2>
+                <p class="tutorial-text">1. Haz clic en una carta de Lobito</p>
+                <p class="tutorial-text">2. Todos los orbes de ese color se destruyen</p>
+                <p class="tutorial-text">3. Cada orbe destruido = 10 de daño</p>
+                <div class="example-box">
+                    <p>Ejemplo: Si usas a <strong>Arquero</strong> y hay 5 orbes verdes...</p>
+                    <p class="damage-example">5 orbes × 10 = <strong>50 de daño</strong></p>
+                </div>
+                <button class="tutorial-btn" onclick="nextStep(4)">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="step-4">
+            <div class="tutorial-content">
+                <h2>¡Debilidades!</h2>
+                <div class="enemy-demo">
+                    <div class="enemy-sprite-big">🌳</div>
+                    <h3>Tronco Místico</h3>
+                    <p class="tutorial-text">Este enemigo tiene <strong>debilidad x2</strong> a:</p>
+                    <div class="weakness-list">
+                        <div class="weakness-item"><div class="demo-orb verde"></div><span>Verde (Precisión)</span></div>
+                        <div class="weakness-item"><div class="demo-orb azul"></div><span>Azul (Inteligencia)</span></div>
+                    </div>
+                    <div class="tip-box"><p>💡 <strong>Tip:</strong> ¡Usa Arquero o Escolar para hacer el DOBLE de daño!</p></div>
+                </div>
+                <button class="tutorial-btn" onclick="nextStep(5)">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="step-5">
+            <div class="tutorial-content">
+                <h2>Turno del Enemigo</h2>
+                <p class="tutorial-text">Después de tu ataque, el Tronco Místico te atacará:</p>
+                <div class="enemy-attack-demo">
+                    <div class="enemy-sprite-big">🌳</div>
+                    <p class="attack-text">¡Raíces Enredadas!</p>
+                    <p class="damage-text">-15 HP</p>
+                </div>
+                <div class="tip-box"><p>⚠️ <strong>Cuidado:</strong> ¡No dejes que tu HP llegue a 0!</p></div>
+                <button class="tutorial-btn" onclick="nextStep(6)">Siguiente ▶</button>
+            </div>
+        </div>
+
+        <div class="tutorial-step hidden" id="step-6">
+            <div class="tutorial-content">
+                <h2>Victoria y Derrota</h2>
+                <div class="outcome-demo">
+                    <div class="victory-demo"><h3>✅ Victoria</h3><p>Reduce el HP del enemigo a 0</p><p>¡Ganas monedas y experiencia!</p></div>
+                    <div class="defeat-demo"><h3>❌ Derrota</h3><p>Tu HP llega a 0</p><p>¡Inténtalo de nuevo!</p></div>
+                </div>
+                <button class="tutorial-btn start-battle" onclick="startBattle()">¡Comenzar Batalla! ⚔️</button>
+            </div>
+        </div>
+    </div>
+    <script src="tutorial.js"></script>
+</body>
+</html>

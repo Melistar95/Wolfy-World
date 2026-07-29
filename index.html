@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfy World</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- MENÚ PRINCIPAL -->
+        <div id="main-menu">
+            <div class="menu-header">
+                <h1 id="game-title">🐺 WOLFY WORLD</h1>
+                <p class="subtitle">Blastventure Mode</p>
+            </div>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="goToAdventure()">
+                    <span class="btn-icon">⚔️</span>
+                    <span class="btn-text">Aventura</span>
+                </button>
+                <button class="menu-btn" onclick="goToGacha()">
+                    <span class="btn-icon">✨</span>
+                    <span class="btn-text">Gacha</span>
+                </button>
+                <button class="menu-btn" onclick="goToWolfyBlast()">
+                    <span class="btn-icon">💥</span>
+                    <span class="btn-text">Wolfy Blast</span>
+                </button>
+                <button class="menu-btn" onclick="showCredits()">
+                    <span class="btn-icon">ℹ️</span>
+                    <span class="btn-text">Créditos</span>
+                </button>
+            </div>
+            <div class="player-info">
+                <p>Jugador: <span id="menu-player-name">Viajero</span></p>
+            </div>
+        </div>
+
+        <!-- Diálogo -->
+        <div id="dialogue-screen" style="display:none;">
+            <div class="dialogue-box">
+                <div class="speaker-name" id="speaker">???</div>
+                <div class="dialogue-text" id="dialogue-text"></div>
+                <button class="continue-btn" id="continue-btn" onclick="nextDialogue()">Continuar ▶</button>
+            </div>
+        </div>
+
+        <!-- Input Nombre -->
+        <div id="name-input-screen" style="display:none;">
+            <div class="name-input-container">
+                <h2>¿Cómo te llamas?</h2>
+                <input type="text" id="nickname-input" placeholder="Tu nombre..." maxlength="15">
+                <br>
+                <button class="continue-btn" onclick="submitName()">Aceptar</button>
+            </div>
+        </div>
+
+        <!-- Carga -->
+        <div id="loading-screen" style="display:none;">
+            <div class="loading-text">Cargando mundo Wolfy...</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar" id="loading-bar"></div>
+            </div>
+            <div class="loading-percentage" id="loading-percentage">0%</div>
+        </div>
+
+        <!-- Transición -->
+        <div id="white-transition"></div>
+
+        <!-- Tutorial -->
+        <div id="tutorial-screen" style="display:none;">
+            <h1 class="tutorial-title">Conoce a tus compañeros</h1>
+            <p class="tutorial-sub">Cada Lobito controla un color de orbe</p>
+            <div class="characters-grid">
+                <div class="character-card"><div class="character-icon">⬜</div><div class="character-name">Lobito</div><div class="character-role">Neutral</div></div>
+                <div class="character-card"><div class="character-icon">🔴</div><div class="character-name">Espadachín</div><div class="character-role">Dominancia</div></div>
+                <div class="character-card"><div class="character-icon">🟢</div><div class="character-name">Arquero</div><div class="character-role">Precisión</div></div>
+                <div class="character-card"><div class="character-icon">🔵</div><div class="character-name">Escolar</div><div class="character-role">Inteligencia</div></div>
+            </div>
+            <button class="start-game-btn" onclick="returnToMenu()">¡Listo!</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

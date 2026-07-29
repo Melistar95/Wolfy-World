@@ -1,0 +1,45 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #0f0f1a; color: white; display: flex; justify-content: center; height: 100vh; overflow: hidden; }
+#battle-container { width: 100%; max-width: 600px; height: 100%; display: flex; flex-direction: column; padding: 15px; background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%); }
+
+#enemy-hud { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.enemy-sprite { font-size: 4em; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.enemy-info { flex: 1; }
+.enemy-info h2 { color: #ff6b6b; font-size: 1.2em; margin-bottom: 5px; }
+#player-hud { text-align: center; margin-bottom: 15px; }
+#player-hud h3 { color: #00e5ff; margin-bottom: 5px; }
+
+.hp-bar-container { width: 100%; height: 15px; background: #333; border-radius: 8px; overflow: hidden; border: 1px solid #555; }
+.hp-bar { height: 100%; background: linear-gradient(90deg, #ff4757, #ff6b81); transition: width 0.5s ease; }
+.hp-bar.player { background: linear-gradient(90deg, #2ed573, #7bed9f); }
+#enemy-hp-text, #player-hp-text { font-size: 0.8em; color: #aaa; margin-top: 3px; }
+
+#board-container { flex: 1; display: flex; justify-content: center; align-items: center; }
+#board { display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; width: 90%; max-width: 350px; aspect-ratio: 1; }
+.orb { border-radius: 50%; cursor: default; transition: transform 0.2s; box-shadow: inset -3px -3px 6px rgba(0,0,0,0.4), inset 3px 3px 6px rgba(255,255,255,0.3); }
+.orb.blanco { background: #f1f2f6; }
+.orb.rojo { background: #ff4757; }
+.orb.verde { background: #2ed573; }
+.orb.azul { background: #3742fa; }
+
+#cards-container { display: flex; justify-content: space-around; gap: 10px; padding: 15px 0; }
+.card { background: rgba(0,0,0,0.7); border: 2px solid #555; border-radius: 10px; padding: 10px; text-align: center; cursor: pointer; transition: 0.2s; flex: 1; }
+.card:hover { transform: translateY(-10px); border-color: #00e5ff; box-shadow: 0 5px 15px rgba(0,229,255,0.3); }
+.card:active { transform: scale(0.95); }
+.card-icon { font-size: 1.8em; margin-bottom: 5px; }
+.card-name { font-size: 0.7em; color: #ccc; margin-bottom: 5px; }
+.card-color { width: 30px; height: 30px; border-radius: 50%; margin: 0 auto; border: 2px solid white; }
+.card-color.blanco { background: #f1f2f6; }
+.card-color.rojo { background: #ff4757; }
+.card-color.verde { background: #2ed573; }
+.card-color.azul { background: #3742fa; }
+
+#message-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
+#message-overlay.hidden { display: none; }
+#message-overlay h1 { font-size: 3em; margin-bottom: 20px; text-shadow: 0 0 20px currentColor; }
+#message-overlay button { padding: 15px 30px; font-size: 1.2em; background: #00e5ff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+
+.damage-text { position: absolute; font-size: 1.5em; font-weight: bold; color: #ff4757; text-shadow: 2px 2px 0 #000; pointer-events: none; animation: floatUp 1s ease-out forwards; z-index: 50; }
+.damage-text.weak { color: #ffa502; font-size: 2em; text-shadow: 2px 2px 0 #000, 0 0 10px #ff6348; }
+@keyframes floatUp { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-50px) scale(1.5); opacity: 0; } }

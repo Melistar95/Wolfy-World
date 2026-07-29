@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfy World - Batalla</title>
+    <link rel="stylesheet" href="battle.css">
+</head>
+<body>
+    <div id="battle-container">
+        <div id="enemy-hud">
+            <div class="enemy-sprite">🌳</div>
+            <div class="enemy-info">
+                <h2 id="enemy-name">Tronco Místico</h2>
+                <div class="hp-bar-container">
+                    <div class="hp-bar" id="enemy-hp-bar" style="width: 100%;"></div>
+                </div>
+                <p id="enemy-hp-text">300 / 300 HP</p>
+            </div>
+        </div>
+
+        <div id="player-hud">
+            <h3 id="player-name-display">Jugador</h3>
+            <div class="hp-bar-container player">
+                <div class="hp-bar player" id="player-hp-bar" style="width: 100%;"></div>
+            </div>
+            <p id="player-hp-text">100 / 100 HP</p>
+        </div>
+
+        <div id="board-container">
+            <div id="board"></div>
+        </div>
+
+        <div id="cards-container">
+            <div class="card" onclick="playCard('blanco')"><div class="card-icon">🐺</div><div class="card-name">Lobito</div><div class="card-color blanco"></div></div>
+            <div class="card" onclick="playCard('rojo')"><div class="card-icon">⚔️</div><div class="card-name">Espadachín</div><div class="card-color rojo"></div></div>
+            <div class="card" onclick="playCard('verde')"><div class="card-icon">🏹</div><div class="card-name">Arquero</div><div class="card-color verde"></div></div>
+            <div class="card" onclick="playCard('azul')"><div class="card-icon">📚</div><div class="card-name">Escolar</div><div class="card-color azul"></div></div>
+        </div>
+
+        <div id="message-overlay" class="hidden">
+            <h1 id="message-text">¡Victoria!</h1>
+            <button onclick="location.href='index.html'">Volver al menú</button>
+        </div>
+    </div>
+    <script src="battle.js"></script>
+</body>
+</html>

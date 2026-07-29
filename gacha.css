@@ -1,0 +1,90 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+body { background: #0f0f1a; color: white; display: flex; justify-content: center; min-height: 100vh; }
+
+#gacha-container {
+    width: 100%; max-width: 600px; padding: 20px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+    display: flex; flex-direction: column; gap: 20px;
+}
+
+/* Barra Superior */
+.top-bar { display: flex; justify-content: space-between; align-items: center; }
+.back-btn { background: rgba(255,255,255,0.1); border: 1px solid #555; color: white; padding: 8px 15px; border-radius: 8px; cursor: pointer; }
+.currency { background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 20px; border: 1px solid #00e5ff; font-weight: bold; display: flex; align-items: center; gap: 5px; }
+.gem-icon { color: #00e5ff; }
+
+/* Banner Principal */
+.banner {
+    position: relative; height: 220px; border-radius: 15px; overflow: hidden;
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a1a2e 100%);
+    border: 2px solid #ff00ff; box-shadow: 0 0 20px rgba(255,0,255,0.3);
+    display: flex; flex-direction: column; justify-content: center; padding: 20px;
+}
+.banner-tag { position: absolute; top: 10px; right: 10px; background: #ff0055; padding: 5px 10px; border-radius: 5px; font-size: 0.8em; font-weight: bold; }
+.banner-content { z-index: 2; text-align: center; }
+.featured-name { font-size: 1.8em; color: #fff; text-shadow: 0 0 10px #ff00ff; margin-bottom: 5px; }
+.featured-rank { font-size: 1.2em; color: #ffd700; font-weight: bold; margin-bottom: 10px; }
+.featured-orbs { font-size: 1.5em; margin-bottom: 10px; }
+.featured-desc { font-size: 0.9em; color: #ccc; }
+.banner-glow { position: absolute; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,0,255,0.2) 0%, transparent 70%); z-index: 1; }
+
+/* Botones de Pull */
+.pull-buttons { display: flex; gap: 15px; }
+.pull-btn {
+    flex: 1; background: rgba(0,0,0,0.6); border: 2px solid #00e5ff; border-radius: 12px;
+    padding: 15px; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center;
+}
+.pull-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,229,255,0.3); }
+.pull-btn.x10 { border-color: #ffd700; position: relative; }
+.btn-title { font-size: 1.2em; font-weight: bold; margin-bottom: 5px; }
+.btn-cost { font-size: 0.9em; color: #00e5ff; }
+.x10 .btn-cost { color: #ffd700; }
+.btn-badge { position: absolute; top: -10px; right: -10px; background: #ff0055; font-size: 0.7em; padding: 3px 8px; border-radius: 10px; }
+
+/* Inventario */
+.inventory-section h3 { color: #00e5ff; margin-bottom: 10px; font-size: 1.1em; }
+.inventory-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; min-height: 80px; }
+.empty-slot { grid-column: span 5; text-align: center; color: #666; padding: 20px; }
+
+/* Tarjetas en inventario */
+.mini-card {
+    aspect-ratio: 3/4; border-radius: 6px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; font-size: 0.7em; text-align: center;
+    border: 2px solid #555; background: #222; padding: 5px;
+}
+.mini-card.rank-C { border-color: #aaa; color: #fff; }
+.mini-card.rank-B { border-color: #00e5ff; color: #00e5ff; box-shadow: 0 0 5px #00e5ff; }
+.mini-card.rank-A { border-color: #b026ff; color: #b026ff; box-shadow: 0 0 8px #b026ff; }
+.mini-card.rank-S { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 12px #ffd700; background: linear-gradient(135deg, #332b00, #222); }
+
+/* Overlay de Resultado */
+#result-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); display: flex; justify-content: center; align-items: center;
+    z-index: 100; animation: fadeIn 0.3s;
+}
+#result-overlay.hidden { display: none; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.result-content { text-align: center; width: 90%; max-width: 500px; }
+#result-title { font-size: 2em; color: #00e5ff; margin-bottom: 20px; text-shadow: 0 0 15px #00e5ff; }
+.result-cards-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-bottom: 30px; }
+
+/* Carta Grande de Resultado */
+.big-card {
+    width: 100px; height: 140px; border-radius: 10px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid #555; background: #1a1a2e; padding: 10px;
+}
+@keyframes popIn { 0% { transform: scale(0) rotate(-10deg); opacity: 0; } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+
+.big-card .card-name { font-size: 0.8em; font-weight: bold; margin-top: 10px; text-align: center; }
+.big-card .card-rank { font-size: 1.5em; margin-bottom: 5px; }
+
+/* Colores de Rareza en Resultado */
+.big-card.rank-C { border-color: #aaa; } .big-card.rank-C .card-name { color: #fff; }
+.big-card.rank-B { border-color: #00e5ff; box-shadow: 0 0 20px #00e5ff; } .big-card.rank-B .card-name { color: #00e5ff; }
+.big-card.rank-A { border-color: #b026ff; box-shadow: 0 0 30px #b026ff; } .big-card.rank-A .card-name { color: #b026ff; }
+.big-card.rank-S { border-color: #ffd700; box-shadow: 0 0 40px #ffd700; background: linear-gradient(135deg, #4a3b00, #1a1a2e); } .big-card.rank-S .card-name { color: #ffd700; }
+
+.close-btn { background: #00e5ff; color: #0f0f1a; border: none; padding: 12px 40px; border-radius: 8px; font-size: 1.1em; font-weight: bold; cursor: pointer; }

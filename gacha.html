@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wolfy World - Gacha</title>
+    <link rel="stylesheet" href="gacha.css">
+</head>
+<body>
+    <div id="gacha-container">
+        <!-- Barra Superior -->
+        <div class="top-bar">
+            <button class="back-btn" onclick="location.href='index.html'">← Menú</button>
+            <div class="currency">
+                <span class="gem-icon">💎</span>
+                <span id="gem-count">5000</span>
+            </div>
+        </div>
+
+        <!-- Banner Principal (Posición del Featured) -->
+        <div class="banner">
+            <div class="banner-tag">🔥 RATE UP 🔥</div>
+            <div class="banner-content">
+                <h1 class="featured-name">Lobito Ninja de Sakura</h1>
+                <div class="featured-rank">Rango S</div>
+                <div class="featured-orbs">❤️  💚</div>
+                <p class="featured-desc">Maestro Elemental. Controla Rojo, Azul y Verde.</p>
+            </div>
+            <div class="banner-glow"></div>
+        </div>
+
+        <!-- Botones de Invocación -->
+        <div class="pull-buttons">
+            <button class="pull-btn x1" onclick="doPull(1)">
+                <span class="btn-title">Invocar x1</span>
+                <span class="btn-cost">💎 100</span>
+            </button>
+            <button class="pull-btn x10" onclick="doPull(10)">
+                <span class="btn-title">Invocar x10</span>
+                <span class="btn-cost">💎 1000</span>
+                <span class="btn-badge">¡MEJOR VALOR!</span>
+            </button>
+        </div>
+
+        <!-- Inventario Rápido -->
+        <div class="inventory-section">
+            <h3>📦 Tus Cartas Recientes</h3>
+            <div class="inventory-grid" id="inventory-grid">
+                <!-- Las cartas obtenidas aparecerán aquí -->
+                <div class="empty-slot">Aún no has invocado...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay de Resultado (Animación) -->
+    <div id="result-overlay" class="hidden">
+        <div class="result-content">
+            <h2 id="result-title">¡Nueva Carta!</h2>
+            <div id="result-cards" class="result-cards-grid"></div>
+            <button class="close-btn" onclick="closeResult()">Continuar</button>
+        </div>
+    </div>
+
+    <script src="gacha.js"></script>
+</body>
+</html>
